@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:i="http://www.iessonferrer.net/pbojar/lloguerCotxes"
 targetNamespace="http://www.iessonferrer.net/pbojar/lloguerCotxes"
 elementFormDefault="qualified">
 
@@ -27,12 +28,8 @@ elementFormDefault="qualified">
 			</xsd:complexType>
 			</xsd:element>	
 
-			<xsd:simpleType name="">
-				<xsd:restriction base="xsd:string">
-					<xsd:enumeration value="Sr" />
-					<xsd:enumeration value="Sra" />
-				</xsd:restriction>
-			</xsd:simpleType>
+
+
 			<xsd:element name="client" maxOccurs="unbounded">
 				<xsd:complexType>
 					<xsd:sequence>
@@ -40,7 +37,7 @@ elementFormDefault="qualified">
   					<xsd:complexType>
    					 <xsd:simpleContent>
      					 <xsd:extension base="xsd:string">
-        					<xsd:attribute name="tractament" type="xsd:string" use="required"/>
+        					<xsd:attribute name="tractament" type="i:Srosra" use="required"/>
       					</xsd:extension>
     					</xsd:simpleContent>
   					</xsd:complexType>
@@ -52,18 +49,7 @@ elementFormDefault="qualified">
 							</xsd:restriction>
 						</xsd:simpleType>
 					</xsd:element>
-					<xsd:element name="email" type="emailAddress"/> 
-  					<xsd:simpleType name="emailAddress"> 
-   					 <xsd:restriction base="xsd:string"> 
-     					 <xsd:pattern value="[^@]+@[^\.]+\..+"/> 
-   				 	</xsd:restriction> 
- 					 </xsd:simpleType> 
-
-
-  
-
-
-
+					<xsd:element name="email" type="i:emailAddress"/> 
 					<xsd:element name="tipusClient">
              <xsd:simpleType>
                <xsd:restriction base="xsd:string">
@@ -92,8 +78,24 @@ elementFormDefault="qualified">
               </xsd:simpleType>
            </xsd:attribute>
 				</xsd:complexType>
+
+
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
+
+
 </xsd:element>
+  					<xsd:simpleType name="emailAddress"> 
+   					 <xsd:restriction base="xsd:string"> 
+     					 <xsd:pattern value="[^@]+@[^\.]+\..+"/> 
+   				 	</xsd:restriction> 
+ 					 	</xsd:simpleType> 
+
+			<xsd:simpleType name="Srosra">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="Sr" />
+					<xsd:enumeration value="Sra" />
+				</xsd:restriction>
+			</xsd:simpleType>
 </xsd:schema>
