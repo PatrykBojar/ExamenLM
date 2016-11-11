@@ -6,7 +6,7 @@ elementFormDefault="qualified">
 <xsd:element name="lloguerCotxes">
 	<xsd:complexType>
 		<xsd:sequence>
-			<xsd:element name="cotxe">
+			<xsd:element name="cotxe" maxOccurs="unbounded">
 				<xsd:complexType>
 					<xsd:sequence>
 						<xsd:element name="marca" type="xsd:string" />
@@ -27,7 +27,7 @@ elementFormDefault="qualified">
 			</xsd:complexType>
 			</xsd:element>	
 
-			<xsd:element name="client">
+			<xsd:element name="client" maxOccurs="unbounded">
 				<xsd:complexType>
 					<xsd:sequence>
 					<xsd:element name="nom">
@@ -56,7 +56,7 @@ elementFormDefault="qualified">
 								</xsd:restriction>
 							</xsd:simpleType>
 						</xsd:element>
-					<xsd:element name="lloguer">
+					<xsd:element name="lloguer" maxOccurs="unbounded">
 						<xsd:complexType>
 							<xsd:sequence>
 								<xsd:element name="cotxe" type="xsd:string" />
@@ -70,7 +70,7 @@ elementFormDefault="qualified">
 					<xsd:attribute name="dni">
               <xsd:simpleType>
                 <xsd:restriction base="xsd:string">
-                  <xsd:pattern value="[0-9]{9}[A-Z]{1}"/>
+                  <xsd:pattern value="[0-9]{8}[a-z]{1}"/>
                 </xsd:restriction>
               </xsd:simpleType>
            </xsd:attribute>
