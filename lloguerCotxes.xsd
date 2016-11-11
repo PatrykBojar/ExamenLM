@@ -26,8 +26,6 @@ elementFormDefault="qualified">
 				</xsd:sequence>
 				<xsd:attribute name="matricula" type="xsd:string" />
 			</xsd:complexType>
-			</xsd:element>
-
 			<xsd:key name="cotxekey">
       	<xsd:selector xpath="i:cotxe/*" />
         <xsd:field xpath="@matricula" />
@@ -36,7 +34,7 @@ elementFormDefault="qualified">
        <xsd:selector xpath="i:cotxe/*" />
        <xsd:field xpath="i:cotxe" />
     	</xsd:keyref>
-
+			</xsd:element>
 			<xsd:element name="client" maxOccurs="unbounded">
 				<xsd:complexType>
 					<xsd:sequence>
