@@ -27,6 +27,12 @@ elementFormDefault="qualified">
 			</xsd:complexType>
 			</xsd:element>	
 
+			<xsd:simpleType name="">
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="Sr" />
+					<xsd:enumeration value="Sra" />
+				</xsd:restriction>
+			</xsd:simpleType>
 			<xsd:element name="client" maxOccurs="unbounded">
 				<xsd:complexType>
 					<xsd:sequence>
@@ -46,7 +52,18 @@ elementFormDefault="qualified">
 							</xsd:restriction>
 						</xsd:simpleType>
 					</xsd:element>
-					<xsd:element name="email" type="xsd:string" />
+					<xsd:element name="email" type="emailAddress"/> 
+  					<xsd:simpleType name="emailAddress"> 
+   					 <xsd:restriction base="xsd:string"> 
+     					 <xsd:pattern value="[^@]+@[^\.]+\..+"/> 
+   				 	</xsd:restriction> 
+ 					 </xsd:simpleType> 
+
+
+  
+
+
+
 					<xsd:element name="tipusClient">
              <xsd:simpleType>
                <xsd:restriction base="xsd:string">
