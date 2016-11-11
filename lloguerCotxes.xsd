@@ -11,8 +11,8 @@ elementFormDefault="qualified">
 					<xsd:sequence>
 						<xsd:element name="marca" type="xsd:string" />
 						<xsd:element name="model" type="xsd:string" />
-						<xsd:element name="color" type="xsd:string" />
-						<xsd:element name="equipacio" type="xsd:string">
+						<xsd:element name="color" type="xsd:string" minOccurs="0"/>
+						<xsd:element name="equipacio">
 							<xsd:complexType>
 								<xsd:sequence>
 									<xsd:element name="climatitzador" type="xsd:string" />
@@ -34,15 +34,29 @@ elementFormDefault="qualified">
   					<xsd:complexType>
    					 <xsd:simpleContent>
      					 <xsd:extension base="xsd:string">
-        					<xsd:attribute name="tractament" type="xsd:string"/>
+        					<xsd:attribute name="tractament" type="xsd:string" use="required"/>
       					</xsd:extension>
     					</xsd:simpleContent>
   					</xsd:complexType>
 					</xsd:element>
-					<xsd:element name="telefon" type="xsd:string" />
+					<xsd:element name="telefon">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:integer">
+								<xsd:pattern value="[0-9]{9}"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
 					<xsd:element name="email" type="xsd:string" />
-					<xsd:element name="tipusClient" type="xsd:string" />
-					<xsd:element name="lloguer" type="xsd:string">
+					<xsd:element name="tipusClient">
+             <xsd:simpleType>
+               <xsd:restriction base="xsd:string">
+									<xsd:enumeration value="Premium" />
+									<xsd:enumeration value="Habitual" />
+									<xsd:enumeration value="Ocasional" />
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					<xsd:element name="lloguer">
 						<xsd:complexType>
 							<xsd:sequence>
 								<xsd:element name="cotxe" type="xsd:string" />
@@ -53,13 +67,15 @@ elementFormDefault="qualified">
 					</xsd:element>
 
 					</xsd:sequence>
-					<xsd:attribute name="dni" type="xsd:string" />
+					<xsd:attribute name="dni">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:pattern value="[0-9]{9}[A-Z]{1}"/>
+                </xsd:restriction>
+              </xsd:simpleType>
+           </xsd:attribute>
 				</xsd:complexType>
 			</xsd:element>
-
-
-
-
 		</xsd:sequence>
 	</xsd:complexType>
 </xsd:element>
