@@ -26,9 +26,16 @@ elementFormDefault="qualified">
 				</xsd:sequence>
 				<xsd:attribute name="matricula" type="xsd:string" />
 			</xsd:complexType>
-			</xsd:element>	
+			</xsd:element>
 
-
+			<xsd:key name="cotxekey">
+      	<xsd:selector xpath="i:cotxe/*" />
+        <xsd:field xpath="@matricula" />
+   		</xsd:key>
+			<xsd:keyref name="cotxekeyref" refer="i:cotxekeyref">
+       <xsd:selector xpath="i:cotxe/*" />
+       <xsd:field xpath="i:cotxe" />
+    	</xsd:keyref>
 
 			<xsd:element name="client" maxOccurs="unbounded">
 				<xsd:complexType>
@@ -68,7 +75,6 @@ elementFormDefault="qualified">
 							</xsd:sequence>
 						</xsd:complexType>
 					</xsd:element>
-
 					</xsd:sequence>
 					<xsd:attribute name="dni">
               <xsd:simpleType>
@@ -78,19 +84,16 @@ elementFormDefault="qualified">
               </xsd:simpleType>
            </xsd:attribute>
 				</xsd:complexType>
-
-
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
-
-
 </xsd:element>
-  					<xsd:simpleType name="emailAddress"> 
-   					 <xsd:restriction base="xsd:string"> 
-     					 <xsd:pattern value="[^@]+@[^\.]+\..+"/> 
-   				 	</xsd:restriction> 
- 					 	</xsd:simpleType> 
+
+  		<xsd:simpleType name="emailAddress"> 
+   			<xsd:restriction base="xsd:string"> 
+     			<xsd:pattern value="[^@]+@[^\.]+\..+"/> 
+   			</xsd:restriction> 
+ 			</xsd:simpleType> 
 
 			<xsd:simpleType name="Srosra">
 				<xsd:restriction base="xsd:string">
